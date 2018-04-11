@@ -24,7 +24,7 @@ class CreateCoursesTable extends Migration
             $table->float('rating');
             $table->unsignedInteger('student_count');
             $table->unsignedDecimal('price');
-            $table->unsignedTinyInteger('status')->index();
+            $table->unsignedTinyInteger('status')->index()->comment('1=Draft, 2=Published');
             $table->timestamps();
 
             $table->foreign('author_id')->references('id')->on('users');
