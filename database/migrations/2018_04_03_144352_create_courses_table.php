@@ -17,15 +17,18 @@ class CreateCoursesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('category_id');
             $table->unsignedInteger('author_id');
-            $table->string('title', 60);
+            $table->string('title', 60); // SEO best title length
             $table->string('slug', 80);
             $table->text('description');
             $table->string('thumbnail');
             $table->float('rating');
             $table->unsignedInteger('student_count');
             $table->unsignedDecimal('price');
-            $table->unsignedTinyInteger('status');
+            $table->unsignedTinyInteger('status')->index();
             $table->timestamps();
+
+            $table->foreign('author_id')->references('id')->on('users');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
