@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
+use App\Repositories\CourseRepository;
+use App\Repositories\CourseRepositoryInterface;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -22,8 +25,10 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, CourseRepositoryInterface $courseRepository)
     {
+        $popular = $courseRepository->popular();
+
         return view('courses.show');
     }
 }

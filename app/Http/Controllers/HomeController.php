@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
+use App\Repositories\CacheRepository;
+use App\Repositories\CourseRepository;
+use App\Repositories\CourseRepositoryInterface;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -21,8 +25,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(CourseRepositoryInterface $repository)
     {
-        return view('home');
+        $popular = $repository->popular();
+
+        $recommended = Course::where('title', 'like', '%iot%')->get();
+
+        return view('home.index');
     }
 }
