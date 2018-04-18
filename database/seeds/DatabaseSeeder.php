@@ -11,6 +11,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // sample user
+        factory(\App\User::class)->create(
+            [
+                'name'           => 'Anton',
+                'email'          => 'anton@berbageek.com',
+                'password'       => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+            ]
+        );
+
 
         // User registrasi
         $users = factory(\App\User::class)->times(10)->create();
