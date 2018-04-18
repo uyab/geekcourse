@@ -6,12 +6,12 @@
 </div>
 
 @push('head')
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-bar-rating/1.2.2/themes/fontawesome-stars.css">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href={{ asset('css/fontawesome-stars.css') }}>
 @endpush
 
 @push('end')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bar-rating/1.2.2/jquery.barrating.min.js"></script>
+    <script src={{ asset('js/jquery.barrating.min.js') }}></script>
 
     <script type="text/javascript">
         $(function() {
