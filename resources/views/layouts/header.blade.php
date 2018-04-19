@@ -4,7 +4,7 @@
 
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="#">Manage Course</a>
+                <a class="nav-link" href="{{ route('my::courses.index') }}">Manage Course</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">My Wishlist</a>

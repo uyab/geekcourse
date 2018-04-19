@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Course;
+use App\User;
 
 class CourseRepository implements CourseRepositoryInterface
 {
@@ -19,5 +20,10 @@ class CourseRepository implements CourseRepositoryInterface
     public function trending()
     {
 
+    }
+
+    public function ownedBy(User $user)
+    {
+        return $user->courses;
     }
 }

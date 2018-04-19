@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // sample user
-        factory(\App\User::class)->create(
+        $defaultUser = factory(\App\User::class)->create(
             [
                 'name'           => 'Anton',
                 'email'          => 'anton@berbageek.com',
@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
 
         // User registrasi
         $users = factory(\App\User::class)->times(10)->create();
+        $users->push($defaultUser);
 
         // Admin membuat master kategori
         $categories = [];
@@ -36,8 +37,9 @@ class DatabaseSeeder extends Seeder
 
         // Untuk setiap user, punya 0 - 3 course
         foreach ($users as $user) {
+
             $userCourses = factory(\App\Course::class)
-                ->times(rand(0, 3))
+                ->times(rand(1, 3))
                 ->make();
 
             // asosiasikan course dengan category dan author

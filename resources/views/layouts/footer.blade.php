@@ -1,1 +1,1 @@
-<footer>Copyright @2018 Berbageek</footer>
+{{--<footer>Copyright @2018 Berbageek</footer>--}}

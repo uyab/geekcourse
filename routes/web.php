@@ -14,8 +14,9 @@
 Route::get('/', 'HomeController@index')->name('home');
 Route::resource('courses', 'CourseController')->only('index', 'show');
 
-
-
+Route::group(['prefix' => 'my', 'namespace' => 'My', 'as' => 'my::'], function(){
+    Route::resource('courses', 'CourseController');
+});
 
 
 
