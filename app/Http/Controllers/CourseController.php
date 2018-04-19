@@ -22,12 +22,12 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  string $slug
      * @return \Illuminate\Http\Response
      */
-    public function show($id, CourseRepositoryInterface $courseRepository)
+    public function show($slug, CourseRepositoryInterface $courseRepository)
     {
-        $course = Course::findOrFail($id);
+        $course = Course::whereSlug($slug)->firstOrFail();
 
         return view('courses.show', compact('course'));
     }

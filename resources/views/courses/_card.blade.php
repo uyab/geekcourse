@@ -15,6 +15,6 @@
         <p class="card-text">{{ $item->author_name }}</p>
         <h6>{{ $item->formatted_date }}</h6>
 
-        <a href="{{ route('courses.show', $item->getKey()) }}" class="btn btn-primary">View Detail</a>
+        <a href="{{ route('courses.show', $item->slug) }}" class="btn btn-primary">View Detail</a>
     </div>
 </div>
