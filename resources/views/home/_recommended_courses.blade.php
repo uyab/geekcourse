@@ -1,24 +1,29 @@
-<h2>Recommended Course</h2>
-<div class="row">
-    @foreach(range(1,5) as $item)
-        @include('courses._card')
-    @endforeach
-</div>
+@if(auth()->check())
 
-@push('head')
-    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href={{ asset('css/fontawesome-stars.css') }}>
-@endpush
+    @inject('repository', "App\Repositories\CourseRepositoryInterface")
 
-@push('end')
-    <script src={{ asset('js/jquery.barrating.min.js') }}></script>
+    <h2>Recommended Course</h2>
+    <div class="row">
+        @foreach($repository->recommended() as $item)
+            @include('courses._card')
+        @endforeach
+    </div>
 
-    <script type="text/javascript">
-        $(function() {
-            $('.rating').barrating({
-                theme: 'fontawesome-stars'
+    @push('head')
+        <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href={{ asset('css/fontawesome-stars.css') }}>
+    @endpush
+
+    @push('end')
+        <script src={{ asset('js/jquery.barrating.min.js') }}></script>
+
+        <script type="text/javascript">
+            $(function () {
+                $('.rating').barrating({
+                    theme: 'fontawesome-stars'
+                });
             });
-        });
-    </script>
+        </script>
 
-@endpush
+    @endpush
+@endif

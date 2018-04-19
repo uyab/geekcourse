@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Course;
 use App\Repositories\CacheRepository;
 use App\Repositories\CourseRepository;
@@ -25,12 +26,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(CourseRepositoryInterface $repository)
+    public function index()
     {
-        $popular = $repository->popular();
-
-        $recommended = Course::where('title', 'like', '%iot%')->get();
-
         return view('home.index');
     }
 }

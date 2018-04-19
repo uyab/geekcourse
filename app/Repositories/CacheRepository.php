@@ -20,13 +20,29 @@ class CacheRepository implements CourseRepositoryInterface
 
     public function popular()
     {
-        if (Cache::has('popular')) {
-            return Cache::get('popular');
-        } else {
-            $popular = $this->repository->popular();
-            Cache::add('popular', $popular, 60);
+        $key = 'popular';
 
-            return $popular;
+        if (Cache::has($key)) {
+            return Cache::get($key);
         }
+
+        $popular = $this->repository->popular();
+        Cache::add($key, $popular, 60);
+
+        return $popular;
+    }
+
+    public function recommended()
+    {
+        $key = 'recommended';
+
+        if (Cache::has($key)) {
+            return Cache::get($key);
+        }
+
+        $recommended = $this->repository->recommended();
+        Cache::add($key, $recommended, 60);
+
+        return $recommended;
     }
 }

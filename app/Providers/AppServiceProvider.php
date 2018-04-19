@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Repositories\CacheRepository;
+use App\Repositories\CourseRepository;
 use App\Repositories\CourseRepositoryInterface;
 use App\Repositories\DummyRepository;
 use Illuminate\Support\Facades\Blade;
@@ -21,8 +22,7 @@ class AppServiceProvider extends ServiceProvider
             return "<?php echo 'Hello '.$expression; ?>";
         });
 
-        $this->app->bind(CourseRepositoryInterface::class, CacheRepository::class);
-        $this->app->bind(CourseRepositoryInterface::class,CacheRepository::class);
+        $this->app->bind(CourseRepositoryInterface::class, CourseRepository::class);
     }
 
     /**

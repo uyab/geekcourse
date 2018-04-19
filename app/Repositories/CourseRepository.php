@@ -8,13 +8,12 @@ class CourseRepository implements CourseRepositoryInterface
 {
     public function popular()
     {
-        sleep(3);
-        return Course::orderBy('rating', 'DESC')->get();
+        return Course::orderBy('rating', 'DESC')->limit(5)->get();
     }
 
     public function recommended()
     {
-
+        return Course::where('title', 'like', '%iot%')->limit(5)->get();
     }
 
     public function trending()

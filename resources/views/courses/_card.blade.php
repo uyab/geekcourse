@@ -10,9 +10,11 @@
             <option value="5">5</option>
         </select>
 
-        <h5 class="card-title">Course Title</h5>
-        <p class="card-text">Course Description</p>
+        <h5 class="card-title">{{ $item->title }}</h5>
+        <p class="card-text">{{ $item->excerpt }}</p>
+        <p class="card-text">{{ $item->author_name }}</p>
+        <h6>{{ $item->formatted_date }}</h6>
 
-        <a href="#" class="btn btn-primary">View Detail</a>
+        <a href="{{ route('courses.show', $item->getKey()) }}" class="btn btn-primary">View Detail</a>
     </div>
 </div>

@@ -9,7 +9,6 @@ $factory->define(App\Course::class, function (Faker $faker) {
         'category_id'   => null,
         'author_id'     => null,
         'title'         => $title,
-        'slug'          => str_slug($title),
         'description'   => $faker->paragraph(5),
         'thumbnail'     => '',
         'rating'        => $faker->numberBetween(0, 5),

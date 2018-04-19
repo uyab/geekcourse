@@ -1,7 +1,9 @@
+@inject('repository', "App\Repositories\CourseRepositoryInterface")
+
 <h2>Popular Course</h2>
 
 <div class="row">
-    @foreach(range(1,5) as $item)
+    @foreach($repository->popular() as $item)
         @include('courses._card')
     @endforeach
 </div>

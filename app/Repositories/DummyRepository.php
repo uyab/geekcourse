@@ -22,4 +22,9 @@ class DummyRepository implements CourseRepositoryInterface
 
         ];
     }
+
+    public function recommended()
+    {
+        // TODO: Implement recommended() method.
+    }
 }

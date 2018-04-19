@@ -27,8 +27,8 @@ class CourseController extends Controller
      */
     public function show($id, CourseRepositoryInterface $courseRepository)
     {
-        $popular = $courseRepository->popular();
+        $course = Course::findOrFail($id);
 
-        return view('courses.show');
+        return view('courses.show', compact('course'));
     }
 }

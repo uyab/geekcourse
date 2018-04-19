@@ -25,7 +25,12 @@ class DatabaseSeeder extends Seeder
         $users = factory(\App\User::class)->times(10)->create();
 
         // Admin membuat master kategori
-        $categories = factory(\App\Category::class)->times(10)->create();
+        $categories = [];
+        $categories[] = factory(\App\Category::class)->create();
+        $categories[] = factory(\App\Category::class)->create();
+        $categories[] = factory(\App\Category::class)->create();
+
+        $categories = collect($categories);
 
         $courses = [];
 
