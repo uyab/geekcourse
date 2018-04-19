@@ -54,3 +54,5 @@ Route::resource('courses', 'CourseController')->only('index', 'show');
 // POST /comments/{id} CommentController@spam
 //
 // POST /spam-comments/{id} SpamCommentController@store
+
+Auth::routes();
