@@ -1,4 +1,4 @@
-@extends('layouts.app', ['headerClass' => 'bg-dark'])
+@extends('layouts.app')
 
 @section('content')
 
@@ -9,6 +9,7 @@
         <div style="height: 4em"></div>
 
         @include('home._recommended_courses')
+
     </div>
 
 @endsection
