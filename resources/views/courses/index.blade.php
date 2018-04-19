@@ -2,13 +2,10 @@
 
 @section('content')
 <h1>Courses List</h1>
-@foreach(range(1,5) as $item)
-    <dl>
-        <dt>Judul</dt>
-        <dd>author</dd>
-        <dd>rating</dd>
-        <dd>harga</dd>
-    </dl>
+<div class="row">
+@foreach($courses as $course)
+    @include('courses._card', ['item' => $course])
 @endforeach
+</div>
 
 @endsection

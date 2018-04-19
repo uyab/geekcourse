@@ -3,6 +3,7 @@
 @section('content')
     <div class="container">
         <h1>My Course</h1>
+        <a href="{{ route('my::courses.create') }}">Create Course</a>
 
         <table class="table table-bordered">
             <thead>

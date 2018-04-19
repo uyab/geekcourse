@@ -21,7 +21,7 @@ class CreateVideosTable extends Migration
             $table->string('path');
             $table->timestamps();
 
-            $table->foreign('course_id')->references('id')->on('courses');
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('CASCADE');
         });
     }
 

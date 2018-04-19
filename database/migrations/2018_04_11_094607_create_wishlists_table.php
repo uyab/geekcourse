@@ -19,8 +19,8 @@ class CreateWishlistsTable extends Migration
 
             $table->primary(['user_id', 'course_id']);
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('course_id')->references('id')->on('courses');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('CASCADE');
         });
     }
 

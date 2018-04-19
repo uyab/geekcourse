@@ -14,13 +14,39 @@
 Route::get('/', 'HomeController@index')->name('home');
 Route::resource('courses', 'CourseController')->only('index', 'show');
 
+
 Route::group(['prefix' => 'my', 'namespace' => 'My', 'as' => 'my::'], function(){
     Route::resource('courses', 'CourseController');
 });
 
-Route::get('bad-logout', function(){
+
+
+
+
+
+
+
+Route::post('bad-logout', function(){
     auth()->logout();
     return redirect()->route('home');
+});
+
+
+
+
+
+
+Route::any('bad-login', function(){
+
+    if (request()->method() == 'POST') {
+        $email = request('email');
+
+        $return = \Illuminate\Support\Facades\DB::statement("select exists(select * from `users` where email = `$email`) as `exists`");
+        dd($return);
+        // $exists = \Illuminate\Support\Facades\DB::table('users')->whereRaw("email = '$email'")->exists();
+    }
+
+    return view('bad-login');
 });
 
 

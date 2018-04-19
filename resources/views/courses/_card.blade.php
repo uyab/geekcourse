@@ -1,4 +1,4 @@
-<div class="card col">
+<div class="card col col-3">
     <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
     <div class="card-body">
 
@@ -16,5 +16,10 @@
         <h6>{{ $item->formatted_date }}</h6>
 
         <a href="{{ route('courses.show', $item->slug) }}" class="btn btn-primary">View Detail</a>
+
+        @can('update', $item)
+        <a href="{{ route('my::courses.edit', $item) }}" class="btn btn-primary">Edit</a>
+        @endcan
+
     </div>
 </div>

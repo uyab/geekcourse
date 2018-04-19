@@ -20,14 +20,14 @@ class CreateCoursesTable extends Migration
             $table->string('title', 60); // SEO best title length
             $table->string('slug', 80);
             $table->text('description');
-            $table->string('thumbnail');
-            $table->float('rating');
-            $table->unsignedInteger('student_count');
-            $table->unsignedDecimal('price');
-            $table->unsignedTinyInteger('status')->index()->comment('1=Draft, 2=Published');
+            $table->string('thumbnail')->nullable();
+            $table->float('rating')->default(0);
+            $table->unsignedInteger('student_count')->default(0);
+            $table->unsignedDecimal('price')->default(0);
+            $table->unsignedTinyInteger('status')->index()->comment('1=Draft, 2=Published')->default('1');
             $table->timestamps();
 
-            $table->foreign('author_id')->references('id')->on('users');
+            $table->foreign('author_id')->references('id')->on('users')->onDelete('CASCADE');
             $table->foreign('category_id')->references('id')->on('categories');
         });
     }

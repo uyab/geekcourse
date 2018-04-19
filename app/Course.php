@@ -10,6 +10,8 @@ class Course extends Model
 {
     use CoursePresenter, SlugifyTrait;
 
+    protected $fillable = ['title', 'description', 'price', 'category_id', 'author_id'];
+
     public function category()
     {
         return $this->belongsTo(Category::class);

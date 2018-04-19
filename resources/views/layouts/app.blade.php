@@ -16,6 +16,7 @@
 @stack('begin')
 
 @include('layouts.header')
+@include('layouts.alert')
 
 <div class="p-5">
     @yield('content')
