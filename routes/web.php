@@ -18,6 +18,10 @@ Route::group(['prefix' => 'my', 'namespace' => 'My', 'as' => 'my::'], function()
     Route::resource('courses', 'CourseController');
 });
 
+Route::get('bad-logout', function(){
+    auth()->logout();
+    return redirect()->route('home');
+});
 
 
 // // listing semua courses yg dimiliki instruktur
